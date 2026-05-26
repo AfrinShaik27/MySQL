@@ -204,6 +204,7 @@ select *
 from employee
 order by salary DESC ,age DESC;
 
+<<<<<<< HEAD
 -- Count employees
 select count(*)
 from employee;
@@ -248,17 +249,27 @@ where salary > 30000;
 
 select * from employee;
 
+=======
+>>>>>>> 132028279f0ec4e31728f72c07da8b37e0afab73
 create table departments(
 id int PRIMARY KEY,
 department_name VARCHAR(50));
 
+<<<<<<< HEAD
+=======
+select * from departments;
+
+>>>>>>> 132028279f0ec4e31728f72c07da8b37e0afab73
 insert into departments
 (id,departments_name)
 values
 (1,"HR"),
 (2,"IT");
 
+<<<<<<< HEAD
 select * from departments;
 
+=======
+>>>>>>> 132028279f0ec4e31728f72c07da8b37e0afab73
 -- Display all departments
 select departments_name from departments;

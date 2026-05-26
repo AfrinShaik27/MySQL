@@ -89,6 +89,7 @@ from student
 order by marks DESC	
 limit 3;
 
+<<<<<<< HEAD
 select * from student;
 
 -- aggregate functions 
@@ -138,4 +139,6 @@ having max(marks) >= 90
 order by city;
  
 
+=======
+>>>>>>> 132028279f0ec4e31728f72c07da8b37e0afab73
 

@@ -108,4 +108,89 @@ from sales
 group by employee
 having count(*) > 1;
 
+-- Find total sales of each city.
+select city, sum(sales) as Total_Sales
+from sales
+group by city;
+
+-- Count how many sales records each employee has.
+select employee,count(sales)
+from sales
+group by employee;
+
+-- Find highest sales in each city.
+select city ,max(sales) as Hightes_Sales
+from sales
+group by city;
+
+-- Find lowest sales made by each employee.
+select employee,min(sales) as Lowest_Sales
+from sales
+group by employee;
+
+-- Show employees whose total sales are greater than 700.
+select employee,sum(sales) as Total_Sales
+from sales
+group by employee
+having sum(sales) > 700;
+
+-- Show cities having more than 1 sales record.
+select city,count(*)
+from sales
+group by city
+having count(*) > 1;
+
+-- Find average sales of each employee.
+select employee,avg(sales) as Average_Sales
+from sales 
+group by employee;
+
+-- Show employees whose average sales are greater than 450.
+select employee,avg(sales) as Average_Sales
+from sales
+group by employee
+having avg(sales) > 540;
+
+-- Show cities where total sales are greater than 1000.
+select city,sum(sales) as Total_Sales
+from sales
+group by city
+having sum(sales) > 1000;
+
+-- Show employees who made more than one sale.
+select employee,count(*) 
+from sales
+group by employee
+having count(*) > 1;
+
+-- Find city-wise total sales, but consider only sales greater than 300.
+select city,sum(sales)
+from sales
+where sales > 300
+group by city;
+
+-- Show cities whose average sales are greater than 500.
+select city,avg(sales) as Average_Sales
+from sales
+group by city
+having avg(sales) > 500;
+
+-- Count employees in each city and show only cities having count greater than 1.
+select city,count(employee)
+from sales
+group by city
+having count(employee) > 1;
+
+-- Find employee-wise total sales excluding Chennai city.
+select employee,sum(sales)
+from sales
+where city != "Chennai"
+group by employee; 
+
+-- Show employees whose minimum sale is greater than 250.
+select employee ,min(sales) as Minimum_Sales
+from sales
+group by employee
+having min(sales) > 250;
+
 select * from sales;
