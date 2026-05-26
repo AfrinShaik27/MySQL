@@ -204,17 +204,61 @@ select *
 from employee
 order by salary DESC ,age DESC;
 
+-- Count employees
+select count(*)
+from employee;
+
+-- Find average salary
+select avg(salary)
+from employee;
+
+-- Find maximum salary
+select max(salary)
+from employee;
+
+-- Find minimum salary
+select min(salary)
+from employee;
+
+-- Find total salary
+select sum(salary)
+from employee;
+
+-- Count employees in department 1
+select count(*)
+from employee
+where department_id=1;
+
+-- Average age
+select avg(age)
+from employee;
+
+-- Highest age
+select max(age)
+from employee;
+
+-- Lowest age
+select min(age)
+from employee;
+
+-- Total employees with salary > 30000
+select count(*)
+from employee
+where salary > 30000;
+
+select * from employee;
+
 create table departments(
 id int PRIMARY KEY,
 department_name VARCHAR(50));
-
-select * from departments;
 
 insert into departments
 (id,departments_name)
 values
 (1,"HR"),
 (2,"IT");
+
+select * from departments;
 
 -- Display all departments
 select departments_name from departments;

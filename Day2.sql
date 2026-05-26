@@ -89,4 +89,53 @@ from student
 order by marks DESC	
 limit 3;
 
+select * from student;
+
+-- aggregate functions 
+-- to calcualte average marks 
+select avg(marks)
+from student;
+
+-- to find maximum marks 
+select max(marks)
+from student;
+
+-- to find mimimum marks
+select min(marks)
+from student;
+ 
+--  to count number of student where marks greater than 90
+select count(id)
+from student
+where marks >= 90;
+
+select marks
+from student
+where id=101;
+
+-- to calculate sum of marks from student
+select sum(marks)
+from student;
+
+-- Group by clause
+select city,count(name)
+from student
+group by city;
+
+-- having clause
+select city,count(name)
+from student 
+group by city
+having max(marks)>=90;
+
+select * from student;
+
+select city,count(name)
+from student
+where grade="A"
+group by city
+having max(marks) >= 90
+order by city;
+ 
+
 
