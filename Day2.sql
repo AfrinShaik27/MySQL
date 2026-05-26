@@ -89,7 +89,6 @@ from student
 order by marks DESC	
 limit 3;
 
-<<<<<<< HEAD
 select * from student;
 
 -- aggregate functions 
@@ -129,8 +128,6 @@ from student
 group by city
 having max(marks)>=90;
 
-select * from student;
-
 select city,count(name)
 from student
 where grade="A"
@@ -138,7 +135,63 @@ group by city
 having max(marks) >= 90
 order by city;
  
+-- table related queires
+-- to update existing rows
 
-=======
->>>>>>> 132028279f0ec4e31728f72c07da8b37e0afab73
+set sql_safe_updates = 0;
+update student
+set grade="O"
+where grade="A";
+
+update student
+set marks =95
+where id=107;
+
+update student 
+set grade ="A"
+where id=104;
+ 
+ update student 
+ set grade = "A"
+ where id=107;
+ 
+--  to delete exiting rows
+set sql_safe_updates=0;
+delete from student
+where id=105;
+delete from student;
+drop table student;
+
+select * from student;
+
+create table department(
+id int primary key, 
+name varchar(50));
+
+select * from department;
+
+insert into department (id,name)
+values
+(101,"science"),
+(102,"english"),
+(103,"hindi");
+
+
+create table teacher(
+id int primary key,
+name varchar(50),
+dept_id int,
+foreign key (dept_id) references department (id)
+on update cascade
+on delete cascade
+);
+insert into teacher (id,name,dept_id)
+values
+(101,"Adam",101),
+(102,"Bob",103),
+(103,"Casey",102),
+(104,"Donald",102);
+
+
+select * from teacher;
 
