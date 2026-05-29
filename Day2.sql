@@ -17,6 +17,34 @@ VALUES
 (104,"Dhurv", 96,"A","Delhi"),
 (105,"Emanuel", 12,"F","Delhi"),
 (106,"Farhan", 82,"B","Delhi");
+truncate table student;
+
+
+alter table student
+add column age int ;
+-- drop column age;
+
+update student set age=19 where stu_id=101;
+update student set age=18 where stu_id=102;
+update student set age=18 where stu_id=103;
+update student set age=18 where stu_id=104;
+update student set age=19 where stu_id=105;
+update student set age=19 where stu_id=106;
+
+
+alter table student
+modify column age varchar(2); 
+
+alter table student
+change column id stu_id int;
+
+alter table student
+change name full_name varchar(50);
+
+
+alter table students
+rename to student;
+
 
 -- to view the table
 select * from student;
@@ -46,7 +74,7 @@ select *
 from student
 where marks >=80 or city="Mumbai";
 
-insert into student (id,name,marks,grade,city)
+insert into student (stu_id,full_name,marks,grade,city)
 values
 (107,"Afrin",80,'B',"Nellore"),
 (108,"Sajida",90,'A',"Nellore");
@@ -176,6 +204,15 @@ values
 (102,"english"),
 (103,"hindi");
 
+update department
+set id="111"
+where id ="102";
+
+update department
+set name="Telugu"
+where name="Maths";
+
+set sql_safe_updates=0;
 
 create table teacher(
 id int primary key,
