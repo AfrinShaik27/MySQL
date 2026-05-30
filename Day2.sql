@@ -367,5 +367,48 @@ select * from employee
 union all
 select * from employee;
 
+-- subquery
+-- Get names of all students who scored more than class average.Step 
+-- 1. Find the avg of class
+-- 2. Find the names of students with marks > avg
 
+select * from student;
+
+
+
+select full_name,marks
+from student
+where marks > (select avg(marks)
+from student);
+
+
+
+-- Find the names of all students with even roll numbers.
+-- Step 1. Find the even roll numbers
+-- Step 2. Find the names of students with even roll no
+
+
+select stu_id
+from student
+where stu_id % 2 = 0;
+
+select stu_id,full_name
+from student
+where stu_id in (select stu_id
+				   from student
+				   where stu_id % 2 = 0);
+
+
+-- Find the max marks from the students of Delhi
+-- Step 1. Find the students of Mumbai
+-- Step 2. Find their max marks using the sublist in step 1
+ 
+ select * 
+ from student
+ where city="delhi";
+ 
+ select max(marks)
+ from (select * 
+ from student 
+ where city="delhi") as Delhicity;
 
