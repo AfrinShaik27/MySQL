@@ -232,3 +232,140 @@ values
 
 select * from teacher;
 
+
+
+-- joins in sql  
+create table students(
+student_id int primary key,
+name varchar(50));
+
+insert into students
+(student_id,name)
+values
+(101,"adam"),
+(102,"bob"),
+(103,"casey");
+
+select * from students;
+
+create table course(
+student_id int, 
+course varchar(50));
+
+insert into course
+(student_id,course)
+values
+(102,"Math"),
+(105,"English"),
+(103,"Science"),
+(107,"Computer Science");
+
+select * from course;
+
+-- drop table course;
+
+-- inner join
+
+select *
+from students
+inner join course
+on students.student_id=course.student_id;
+
+-- left join on students table and course table
+
+select *
+from students
+left join course
+on students.student_id=course.student_id;
+
+-- right join on students table and course table
+
+select * 
+from students as s
+right join course as c
+on s.student_id=c.student_id;
+
+-- full join on student table and course table
+
+select * 
+from students as s
+left join course as c
+on s.student_id=c.student_id
+union
+select * 
+from students as s
+right join course as c
+on s.student_id=c.student_id;
+
+-- left exclusive join
+
+select *
+from students as s
+left join course as c
+on s.student_id=c.student_id
+where c.student_id is null;
+
+-- right exclusive join
+select * 
+from students as s
+right join course as c
+on s.student_id=c.student_id
+where s.student_id is null;
+
+
+-- full exclusive join
+
+select *
+from students as s
+left join course as c
+on s.student_id=c.student_id
+where c.student_id is null
+union
+select *
+from students as s
+right join course as c
+on s.student_id=c.student_id
+where s.student_id is null;
+
+
+-- self join
+
+create table employee
+(id int primary key,
+name varchar(50),
+manager_id int);
+
+insert into 
+employee (id,name,manager_id)
+values
+(101,"adam",103),
+(102,"bob",104),
+(103,"casey",null),
+(104,"donald",103);
+drop table employee;
+
+select * from employee;
+
+select *
+from employee as a
+join employee as b
+on a.id=b.manager_id;
+
+select b.name, a.name as manager_name
+from employee as a
+join employee as b
+on a.id=b.manager_id;
+
+-- union
+
+select * from employee
+union 
+select * from employee;
+
+-- union all
+select * from employee
+union all
+select * from employee;
+
+
+
